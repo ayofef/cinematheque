@@ -1,0 +1,32 @@
+.GenreItem{
+    flex: 0 1 15rem;
+    padding: 1.5rem 5rem;
+    margin: 3rem 3rem;
+    border-radius: .5rem;
+    text-align: center;
+    box-shadow: 0 0 1.6rem rgba(#cfdbd5, .4);
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s;
+    backface-visibility: hidden;
+    position: relative;
+    font-size: 1.2rem;
+    color: #1e212b;
+    background-color: #cfdbd5;
+        
+    
+        
+    &:hover{
+    transform: translateY(-0.4rem);
+    box-shadow: 0 0.8rem 0.5rem rgba(#cfdbd5, 0.1);
+    }
+    &:active{
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.4rem 0.5rem rgba(#cfdbd5, 0.05);
+    }
+
+    & span{
+        margin-right: 1rem;
+    }
+}

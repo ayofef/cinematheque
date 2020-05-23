@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+.Cinematheque{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: #f8f4e3;
+    font-size: 1.4rem;
+
+    &__masthead{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 56.25em){
+            flex-flow: column wrap;
+            padding: 3.5rem 0 1.5rem 0;
+        }
+        
+    }
+    &__logo{
+        padding: 3.5rem 0;
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Julius Sans One', sans-serif;
+
+        @media screen and (max-width: 56.25em){
+            padding: 0 0 2rem 0;
+        }
+        & a{
+            color: #1e212b;
+            text-decoration: none;
+        }
+
+        
+    }
+
+    &__nav{
+
+        &__Desktop{
+            @media screen and (max-width: 56.25em){
+                display: none;
+            }
+        }
+
+        & ul{
+            list-style-type: none;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transition: all .3s ease-out;
+
+            & > :not(:last-child){
+                margin-right: 2rem;
+
+                
+            }
+
+            & li{
+                cursor: pointer;
+
+
+                & a{
+                    color: #1e212b;
+                    text-decoration: none;
+
+                    &::after{
+                        content: "";
+                        display: block;
+                        position: relative;
+                        top: .5rem;
+                        width: 100%;
+                        opacity: 0;
+                        height: 1px;
+                        background-color: #1e212b;
+                        transition: all .3s ease-out;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                    }
+    
+                    &:hover::after{
+                        opacity: 1;
+                        transform: scaleX(1);
+                        transform-origin: right;
+                    }
+                }
+            }
+        }
+    }
+
+    &__MobileNav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f8f4e3;
+        height: 100vh;
+        width: 100vw;
+        
+        
+        
+
+        & ul{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & > * {
+                margin-bottom: 3.5rem;
+            }
+        }
+    }
+}
+
+.activeNavLink{
+
+    &::after{
+        opacity: 1 !important;
+        transform: scaleX(1) !important;
+        transform-origin: right !important;
+    }
+  }
+
+
+
+
+  
+/*hamburger*/
+
+.main_navigation {
+    z-index: 1000; }
+    .main_navigation__checkbox {
+      display: none; }
+    @media screen and (max-width: 56.25em) {
+      .main_navigation__button {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 2.8rem;
+        padding: 2rem;
+        margin-right: 1rem; } }
+    @media screen and (max-width: 56.25em) and (max-width: 56.25em) {
+      .main_navigation__button {
+        display: block; } }
+    @media screen and (max-width: 56.25em) {
+      .main_navigation__hamburger {
+        position: relative; }
+        .main_navigation__hamburger, .main_navigation__hamburger::before, .main_navigation__hamburger::after {
+          width: 2rem;
+          height: 1.6px;
+          background-color: #1e212b;
+          display: block;
+          z-index: 4000; }
+        .main_navigation__hamburger::before, .main_navigation__hamburger::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          transition: all .2s; }
+        .main_navigation__hamburger::before {
+          top: -.8rem; }
+        .main_navigation__hamburger::after {
+          top: .8rem; }
+      .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger {
+        background-color: transparent; }
+      .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger::before {
+        top: 0;
+        transform: rotate(135deg); }
+      .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger::after {
+        top: 0;
+        transform: rotate(-135deg); } }
+
+
+
+        @keyframes footerBack {
+
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+@keyframes animateNav {
+    0%{
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+      opacity: 0;
+      transform: translateX(10rem);
+    }
+    80%{
+      transform: translate(-1rem);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }

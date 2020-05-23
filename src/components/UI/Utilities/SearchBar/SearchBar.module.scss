@@ -1,0 +1,46 @@
+.Search{
+    display: flex;
+    color: #1e212b;
+    width: 30rem;
+
+
+    
+
+
+    &__Input{
+        padding: .7rem 3.5rem .7rem 1rem;
+        border: none;
+        border-radius: .7rem;
+        background-color: #cfdbd5;
+        width: 100%;
+        outline: none;
+        transition: all .3s ease-out;
+
+        &:target,
+        &:focus {
+            box-shadow: 0px .3rem .3rem rgba(0, 0, 0, 0.281);
+        }
+
+        &:hover{
+            box-shadow: 0px .3rem .3rem rgba(0, 0, 0, 0.281);
+        }
+
+    }
+    
+    & a{
+        transition: all .3s ease-out;
+
+        
+        
+    }
+    
+    & .activeSearch{
+        
+        color: #1e212b;
+    }
+
+    & .inactiveSearch {
+        color: #777;
+    }
+
+}

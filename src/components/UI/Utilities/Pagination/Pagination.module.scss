@@ -1,0 +1,51 @@
+.Pagination{
+   width: 95%;
+   display: flex;
+   margin: 0 auto;
+   flex-flow: row wrap;
+   justify-content: space-between;
+   align-items: center;
+   padding: 6rem 0 3rem 0;
+   
+   &__Btn:link,
+   &__Btn:visited{
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      border-radius: .5rem;
+      transition: all .2s;
+      backface-visibility: hidden;
+      position: relative;
+      padding: 1.2rem 4rem;
+      font-size: 1.2rem;
+      color: #1e212b;
+      background-color: #cfdbd5;
+
+   @media screen and (max-width: 31.25em){
+      padding: 1.2rem 2rem;
+   }
+   
+
+   }
+   &__Btn:hover{
+      transform: translateY(-0.4rem);
+      box-shadow: 0 0.8rem 0.5rem rgba(#cfdbd5, 0.1);
+   }
+   &__Btn:active{
+      transform: translateY(-0.1rem);
+      box-shadow: 0 0.4rem 0.5rem rgba(#cfdbd5, 0.05);
+   }
+
+   
+   &__Btn_Forward{
+      margin-left: auto;
+   }
+   &__Btn_Back{
+      margin-right: auto;
+   }
+}
+
+
+
+
+

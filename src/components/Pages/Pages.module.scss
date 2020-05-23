@@ -1,0 +1,28 @@
+.Pages {
+    padding-top: 5rem;
+
+    &__Heading{
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    &__Container{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        & > * {
+            margin: 3rem 1rem;
+
+            @media screen and (max-width: 45em){
+                margin: 3rem 3rem;
+            }
+        }
+
+        @media screen and (max-width: 45em){
+            justify-content: center;
+        }
+    }
+}

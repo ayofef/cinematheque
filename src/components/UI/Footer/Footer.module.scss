@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+.Footer{
+    transition: all .3s ease-out;
+    padding: 8rem 0 3rem 0;
+
+    &__Logo{
+        padding: 2.5rem 0;
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Julius Sans One', sans-serif;
+        text-align: center;
+        & a{
+            color: #1e212b;
+            text-decoration: none;
+        }   
+    }
+
+    &__Credits{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        
+
+        & img{
+            margin: 1.5rem;
+            display: block;
+            height: 2rem;
+        }
+    }
+}
