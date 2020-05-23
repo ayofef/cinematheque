@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "../../axiosInstance";
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import MovieCard from '../UI/Utilities/MovieCard/MovieCard';
 import Pagination from "../UI/Utilities/Pagination/Pagination";
 
@@ -24,6 +24,7 @@ const Pages = (props) => {
 
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(null);
+    const [error, setError] = useState(null);
 
     const { name, page} = useParams();
 
@@ -51,7 +52,6 @@ const Pages = (props) => {
         icon = faFire
     }
     
-    console.log(props)
     
     
     const IconStyle = {
@@ -75,11 +75,21 @@ const Pages = (props) => {
                 setData(data)
                 setTotalPages(res.data.total_pages);
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
         
 
 
         
     },[name, page, url])
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(

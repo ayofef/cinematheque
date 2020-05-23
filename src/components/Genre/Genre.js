@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-
+import { Redirect } from "react-router-dom";
 
 import axios from "../../axiosInstance";
 import Loader from "../UI/Utilities/Loader/Loader";
@@ -15,6 +15,7 @@ import site from "../../assets/metaData.json";
 const Genre = () => {
 
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
@@ -24,10 +25,19 @@ const Genre = () => {
                 const data = res.data.genres;
                 setData(data)
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
         }
     })
 
-    console.log(data)
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(

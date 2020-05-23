@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Switch} from "react-router-dom";
 import useDarkMode from "../../components/UI/Utilities/DarkModeHooks/UseDarkMode";
 
@@ -12,7 +12,7 @@ import PageTemplate from "../../components/Pages/Pages";
 import Genre from "../../components/Genre/Genre";
 import GenreRequest from "../../components/Genre/GenreRequest/GenreRequest";
 import Search from "../../components/Pages/Search";
-
+import Error from "../../components/UI/Utilities/Error/Error";
 
 
 
@@ -28,6 +28,7 @@ const Layout = () => {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/genres" exact component={Genre} />
+                        <Route path="/error" exact component={Error} />
                         <Route path="/genres/:genreCode/:page" exact component={GenreRequest} />
                         <Route path="/genres/:genreCode/:page/:id" exact component={MovieDetails} />
                         <Route path="/home/:id" exact component={MovieDetails} />

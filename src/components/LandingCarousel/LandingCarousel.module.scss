@@ -48,21 +48,23 @@
         transition: all .3s ease-out;
 
         
+        @media (hover: hover) {
+            &:hover{
+                transform: scale(1.1);
+                box-shadow: 0 0 4rem rgba(#393e41, .6);
+            }
+    
+            &:hover .LandingSlide__poster___img{
+                position: relative;
+                transform: scale(1.3) translateX(50%);
+            }
+            &:hover .LandingSlide__poster___overview{
+                opacity: 0;
+                visibility: none;
+            }
+        }
+
         
-
-        &:hover{
-            transform: scale(1.1);
-            box-shadow: 0 0 4rem rgba(#393e41, .6);
-        }
-
-        &:hover .LandingSlide__poster___img{
-            position: relative;
-            transform: scale(1.3) translateX(50%);
-        }
-        &:hover .LandingSlide__poster___overview{
-            opacity: 0;
-            visibility: none;
-        }
     }
     
     &__content{

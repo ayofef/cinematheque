@@ -33,7 +33,6 @@ const CastSection = ({cast}) => {
         return () => window.removeEventListener('resize', changeTotalShow);
     }, [cast]);
 
-    console.log(totalShow)
     const settings = {
         dots: false,
         infinite: true,

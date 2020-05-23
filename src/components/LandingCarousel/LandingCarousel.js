@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import axios from "../../axiosInstance";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { Backdrop, Img } from "../UI/Utilities/Images";
 import classes from "./LandingCarousel.module.scss";
@@ -8,6 +8,7 @@ import classes from "./LandingCarousel.module.scss";
 
 const Landing = () => {
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
 
@@ -20,16 +21,21 @@ const Landing = () => {
 
 
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
         }
 
 
         
     })
 
-
-
-    
-    console.log(data)
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(

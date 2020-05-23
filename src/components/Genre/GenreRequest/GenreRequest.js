@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, Redirect } from "react-router-dom";
 import Select from 'react-select';
 import { faFilm} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -34,6 +34,7 @@ const GenreRequest = (props) => {
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(null);
     const [sort, setSort] = useState({value: "popularity.desc" , label: "Popularity"});
+    const [error, setError] = useState(null);
 
     const { value } = sort;
     
@@ -42,7 +43,7 @@ const GenreRequest = (props) => {
     
     const [, genre, whichGenre, page] = pathname.split("/")
 
-    console.log( genre, whichGenre, page );
+
 
     useEffect(() => {
 
@@ -63,13 +64,17 @@ const GenreRequest = (props) => {
             setData(data)
             setTotalPages(res.data.total_pages);
         })
+        .catch(err => {
+            console.log("ERROR:", err.response)
+            setError(err.response.status)
+        })
         
 
 
         
     }, [whichGenre, page, value, sort, setSort])
 
-    console.log(props)
+
     const handleChange = (selectedOption) => {
         setSort(selectedOption);
     }
@@ -79,7 +84,13 @@ const GenreRequest = (props) => {
         {value: "release_date.desc" , label: "Release Date"},
         {value: "vote_average.desc" , label: "Ratings"},
     ];
-    console.log(sort)
+
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
     
     if(data){
         return(

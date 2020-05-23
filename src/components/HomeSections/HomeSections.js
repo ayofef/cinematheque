@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "../../axiosInstance";
 import Markup from "./Markup";
+import { Redirect } from "react-router-dom";
 import { faClock, faStar, faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faFire} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,6 +17,7 @@ export const Latest = () => {
 
 
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
@@ -28,11 +30,22 @@ export const Latest = () => {
                 const data = res.data.results;
                 setData(data.slice(0, 5))
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
+            
         }
 
 
         
     })
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(
@@ -49,6 +62,7 @@ export const Latest = () => {
 export const TopRated = () => {
 
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
@@ -58,11 +72,21 @@ export const TopRated = () => {
                 const data = res.data.results;
                 setData(data.slice(0, 5))
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
         }
 
 
         
     })
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(
@@ -81,6 +105,7 @@ export const TopRated = () => {
 export const Popular = () => {
 
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
@@ -90,11 +115,22 @@ export const Popular = () => {
                 const data = res.data.results;
                 setData(data.slice(0, 5))
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
+            
         }
 
 
         
     })
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(
@@ -113,6 +149,7 @@ export const Popular = () => {
 export const Upcoming = () => {
 
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
@@ -125,11 +162,22 @@ export const Upcoming = () => {
                 const data = res.data.results;
                 setData(data.slice(0, 5))
             })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
+            })
+            
         }
 
 
         
     })
+
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
     if(data){
         return(

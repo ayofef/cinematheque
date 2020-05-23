@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import MovieCard from "../MovieCard/MovieCard";
-import axios from "../../../../axiosInstance";
+import { Redirect } from "react-router-dom";
+import MovieCard from "../UI/Utilities/MovieCard/MovieCard";
+import axios from "../../axiosInstance";
 import classes from "./Recommendation.module.scss";
 
 
 const Recommendation = ({id, current}) => {
 
     const [recommendation, setRecommendation] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         
@@ -14,15 +16,23 @@ const Recommendation = ({id, current}) => {
             .then(res => {
                 const recData = res.data.results;
                 setRecommendation(recData)
-                console.log("reco", recData)
     
+            })
+            .catch(err => {
+                console.log("ERROR:", err.response)
+                setError(err.response.status)
             })
             
         
     },[id])
 
+    if(error){
+        return(
+            <Redirect to="/error"/>
+        )
+    }
 
-    if(recommendation){
+    if(recommendation && recommendation.length > 1){
         return(
             <div className={classes.Recommendation}>
                 <h2 className={["headingRecommendation", `${classes.Recommendation__Heading}`].join(" ")}>Bacause you viewed {current}</h2>
@@ -39,6 +49,9 @@ const Recommendation = ({id, current}) => {
                 </div>
             </div>
         )
+    }
+    if(recommendation && recommendation.length < 1){
+        return null;
     }
 
     return(<p>Loading...</p>)

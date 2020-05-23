@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import axios from "../../axiosInstance";
 import languages from '../UI/Utilities/Languages';
 import { Img } from "../UI/Utilities/Images";
 import ModalVideo from "react-modal-video";
-import Recommendation from "../UI/Utilities/Recommendation/Recommendation";
+import Recommendation from "../Recommendation/Recommendation";
 import Loader from "../UI/Utilities/Loader/Loader";
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import { Backdrop } from "../UI/Utilities/Images";
@@ -33,12 +33,13 @@ const IconStyle = {
 const MovieDetails = (props) => {
     const [data, setData] = useState(null);
     const [cast, setCast] = useState(null);
+
+    const [error, setError] = useState(null);
     
     const [isOpen, setIsOpen] = useState(false);
 
     const {id} = useParams();
     
-    console.log(props)
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -48,6 +49,10 @@ const MovieDetails = (props) => {
             setData(data)
 
 
+        })
+        .catch(err => {
+            console.log("ERROR:", err.response)
+            setError(err.response.status)
         })
 
 
@@ -62,7 +67,12 @@ const MovieDetails = (props) => {
     },[id])
 
     
-   console.log(data)
+
+   if(error){
+       return(
+           <Redirect to="/error"/>
+       )
+   }
 
    if(data){
        const {adult, backdrop_path,  vote_average, status, tagline, genres, title, overview, runtime, poster_path, release_date, videos, original_language } = data;
@@ -77,10 +87,6 @@ const MovieDetails = (props) => {
 
         })
         
-
-        
-
-        console.log("langl", name)
         return(
             <div className={classes.Details}>
 
@@ -89,7 +95,7 @@ const MovieDetails = (props) => {
                     <title>{site.siteMetadata.title} {title}</title>
                     <meta name="google-site-verification" content="0j6Ak" />
                     <meta name="author" content={site.siteMetadata.author} />
-                    <meta name="description" content={site.siteMetadata.description, overview} />
+                    <meta name="description" content={site.siteMetadata.description , overview} />
                     <meta name="thumbnail" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
                     <meta name="robots" content={site.siteMetadata.robot} />
                     <meta name="og:title" content={site.siteMetadata.title, title} />
@@ -130,6 +136,7 @@ const MovieDetails = (props) => {
                                 <p><span>Year: </span> {date}</p>
                                 <p><span>Runtime: </span> {runtime}min</p>
                                 <p><span>Genre: </span> {genre.join(" / ")}</p>
+                                <p><span>Language </span> {name}</p>
                             </div>
                             <div className={classes.Details__Box___Overview_Context}>
                                 <p className={classes.Details__Box___Overview_Tagline}>{tagline}</p>
