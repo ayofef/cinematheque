@@ -17,6 +17,13 @@ import SVG18 from "../../assets/18.svg";
 import classes from "./Details.module.scss";
 
 
+
+//HELMET
+import { Helmet } from "react-helmet-async";
+import site from "../../assets/metaData.json";
+
+
+
 const IconStyle = {
     height: "4rem",
 }
@@ -76,6 +83,22 @@ const MovieDetails = (props) => {
         console.log("langl", name)
         return(
             <div className={classes.Details}>
+
+                <Helmet> 
+                    <html lang="en" />
+                    <title>{site.siteMetadata.title} {title}</title>
+                    <meta name="google-site-verification" content="0j6Ak" />
+                    <meta name="author" content={site.siteMetadata.author} />
+                    <meta name="description" content={site.siteMetadata.description, overview} />
+                    <meta name="thumbnail" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                    <meta name="robots" content={site.siteMetadata.robot} />
+                    <meta name="og:title" content={site.siteMetadata.title, title} />
+                    <meta name="og:keywords" content={site.siteMetadata.keywords} />
+                    <meta name="og:type" content={site.siteMetadata.type} />
+                    <meta name="og:url" content={site.siteMetadata.siteUrl} />
+                    <meta name="og:image" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                    <meta name="og:description" content={site.siteMetadata.description, overview} />
+                </Helmet>
                 <div className="container">
                     <div className={classes.Details__Box}>
                         <div className={classes.Details__Box___Image}>
@@ -114,7 +137,7 @@ const MovieDetails = (props) => {
                             </div>
                             
                             {
-                                videos.results[0] ?
+                                videos.results[0] &&  backdrop_path ?
                                 <div className={["detailsTrailer", `${classes.Details__Box___Overview_Trailer}`].join(" ")} onClick={() => setIsOpen(!isOpen)}>
                                     <Backdrop id={backdrop_path} title={title}/>
                                     

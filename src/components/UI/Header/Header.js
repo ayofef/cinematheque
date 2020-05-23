@@ -10,7 +10,7 @@ const mainNav = [
     {name: "Top Rated", link: "/top-rated-movies/1"}, 
     {name: "Popular", link: "/popular-movies/1"},
     {name: "Upcoming", link: "/upcoming-movies/1"}, 
-    {name: "Genre",  link: "/genres"}
+    {name: "Genres",  link: "/genres"}
 ];
 
 

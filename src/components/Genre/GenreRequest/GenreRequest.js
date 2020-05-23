@@ -13,6 +13,13 @@ import Pagination from "../../UI/Utilities/Pagination/Pagination";
 import classes from "./GenreRequest.module.scss";
 
 
+//HELMET
+import { Helmet } from "react-helmet-async";
+import site from "../../../assets/metaData.json";
+
+
+
+
 const IconStyle = {
     transform: "translateY(.2rem)",
     height: "2.5rem",
@@ -77,6 +84,21 @@ const GenreRequest = (props) => {
     if(data){
         return(
             <div className={classes.GenreReq}>
+                <Helmet> 
+                    <html lang="en" />
+                    <title>{site.siteMetadata.title} {capitalize(whichGenre.split("-")[0])}</title>
+                    <meta name="google-site-verification" content="0j6Ak" />
+                    <meta name="author" content={site.siteMetadata.author} />
+                    <meta name="description" content={site.siteMetadata.description} />
+                    <meta name="thumbnail" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                    <meta name="robots" content={site.siteMetadata.robot} />
+                    <meta name="og:title" content={site.siteMetadata.title} />
+                    <meta name="og:keywords" content={site.siteMetadata.keywords} />
+                    <meta name="og:type" content={site.siteMetadata.type} />
+                    <meta name="og:url" content={site.siteMetadata.siteUrl} />
+                    <meta name="og:image" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                    <meta name="og:description" content={site.siteMetadata.description} />
+                </Helmet>
                <div className="container">
                 <h1 className={classes.GenreReq__Heading}><span><FontAwesomeIcon style={IconStyle} icon={faFilm} /></span>{capitalize(whichGenre.split("-")[0])}</h1>
                 <Select

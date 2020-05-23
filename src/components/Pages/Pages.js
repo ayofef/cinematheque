@@ -12,6 +12,10 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
+//HELMET
+import { Helmet } from "react-helmet-async";
+import site from "../../assets/metaData.json";
+
 
 
 //Template for Latest, Top Rated and Upcoming page. The axios request will just recieve the parameter from url to which page and which request to make//
@@ -79,7 +83,25 @@ const Pages = (props) => {
 
     if(data){
         return(
+            
             <div className={classes.Pages}>
+
+            <Helmet> 
+                <html lang="en" />
+                <title>{site.siteMetadata.title} {heading}</title>
+                <meta name="google-site-verification" content="0j6Ak" />
+                <meta name="author" content={site.siteMetadata.author} />
+                <meta name="description" content={site.siteMetadata.description} />
+                <meta name="thumbnail" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                <meta name="robots" content={site.siteMetadata.robot} />
+                <meta name="og:title" content={site.siteMetadata.title} />
+                <meta name="og:keywords" content={site.siteMetadata.keywords} />
+                <meta name="og:type" content={site.siteMetadata.type} />
+                <meta name="og:url" content={site.siteMetadata.siteUrl} />
+                <meta name="og:image" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
+                <meta name="og:description" content={site.siteMetadata.description} />
+            </Helmet>
+
                <div className="container">
                <h1 className={classes.Pages__Heading}><span><FontAwesomeIcon style={IconStyle} icon={icon} /></span>{capitalize(heading)}</h1>
                <div className={classes.Pages__Container}>

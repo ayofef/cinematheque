@@ -13,7 +13,7 @@ const Landing = () => {
 
     useEffect(() => {
         if(!data){
-            axios.get("/movie/top_rated")
+            axios.get("/movie/upcoming")
             .then(res => {
                 const data = res.data.results;
                 setData(data.slice(0, 3))
