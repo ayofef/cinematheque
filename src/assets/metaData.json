@@ -3,7 +3,7 @@
         "author" : "Farouq Ayofe",
         "title" : "Cinematheque | ",
         "siteUrl" : "/localhost:3000",
-        "description": "A movie library that fetched data from The Movie Databse and displays it with a crispy Ui. Users get to explore all movies across different genre and categories and even get similar movies of movies they viewed. Each movies shows information like it's status (released or in production), release year, synopsis, ratings..",
+        "description": "A movie library that fetches data from The Movie Databse and displays it with a crispy Ui. Users get to explore all movies across different genre and categories and even get similar movies of movies they viewed. Each movies shows information like it's status (released or in production), release year, synopsis, ratings..",
         "type": "website",
         "image": "snapshot.jpg",
         "keywords": "farouq.dev, cinematheque, movie library, front-end developer, freelance, web developer, react portfolio, portfolio, Dublin",
