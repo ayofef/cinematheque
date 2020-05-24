@@ -37,7 +37,7 @@ const Search = (props) => {
 
         window.scrollTo(0, 0);
 
-            axios.get(`/search/movie/`,  {
+            axios.get(`/search/movie`,  {
                 params: {
                     query: query, 
                     page: 1
