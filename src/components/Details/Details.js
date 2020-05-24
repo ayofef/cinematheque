@@ -144,7 +144,7 @@ const MovieDetails = (props) => {
                             </div>
                             
                             {
-                                videos && videos.results[0] &&  backdrop_path ?
+                                videos.results[0] &&  backdrop_path ?
                                 <div className={["detailsTrailer", `${classes.Details__Box___Overview_Trailer}`].join(" ")} onClick={() => setIsOpen(!isOpen)}>
                                     <Backdrop id={backdrop_path} title={title}/>
                                     
@@ -152,7 +152,7 @@ const MovieDetails = (props) => {
                                 </div> : null
                             }
                             {
-                                videos && videos.results[0] ?
+                                videos.results[0] ?
                                 <ModalVideo channel={videos.results[0].site.toLowerCase()} isOpen={isOpen} videoId={videos.results[0].key} onClose={() => setIsOpen(!isOpen)} /> : null
                             }
                             
