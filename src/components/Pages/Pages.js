@@ -99,7 +99,7 @@ const Pages = (props) => {
             <Helmet> 
                 <html lang="en" />
                 <title>{site.siteMetadata.title} {heading}</title>
-                <meta name="google-site-verification" content="0j6Ak" />
+                <meta name="google-site-verification" content="1PzEhgav7N4Baqikr-U-7dtjHbNRw5OiIuPtWKZABHU" />
                 <meta name="author" content={site.siteMetadata.author} />
                 <meta name="description" content={site.siteMetadata.description} />
                 <meta name="thumbnail" content={[site.siteMetadata.siteUrl, "/", site.siteMetadata.image].join("")} />
