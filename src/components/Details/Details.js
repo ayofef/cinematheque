@@ -135,8 +135,8 @@ const MovieDetails = (props) => {
                                 <p><span>Status: </span> {status}</p>
                                 <p><span>Year: </span> {date}</p>
                                 <p><span>Runtime: </span> {runtime}min</p>
-                                <p><span>Genre: </span> {genre.join(" / ")}</p>
                                 <p><span>Language </span> {name}</p>
+                                <p><span>Genre: </span> {genre.join(" / ")}</p>
                             </div>
                             <div className={classes.Details__Box___Overview_Context}>
                                 <p className={classes.Details__Box___Overview_Tagline}>{tagline}</p>
