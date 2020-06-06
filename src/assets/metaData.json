@@ -2,7 +2,7 @@
     "siteMetadata" : {
         "author" : "Farouq Ayofe",
         "title" : "Cinematheque | ",
-        "siteUrl" : "/localhost:3000",
+        "siteUrl" : "https://cinematheque.dev",
         "description": "A movie library that fetches data from The Movie Databse and displays it with a crispy Ui. Users get to explore all movies across different genre and categories and even get similar movies of movies they viewed. Each movies shows information like it's status (released or in production), release year, synopsis, ratings..",
         "type": "website",
         "image": "snapshot.jpg",
