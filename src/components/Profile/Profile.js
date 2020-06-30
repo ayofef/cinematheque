@@ -26,7 +26,7 @@ const ProfileDetails = ({ dataBase, auth, profile }) => {
                 <div className={classes.Profile__Header}>
                     <div className={classes.Profile__Header___Details}>
                         <h1 className={classes.Profile__Header___Details_UserName}>
-                            `${profile.firstName} ${profile.lastName}`
+                            {profile.firstName} {profile.lastName}
                         </h1>
                         <div className={classes.Profile__Header___Details_Stats}>
                             <span>{moviesTotal || "0"}</span> Movies &nbsp; <span>{seriesTotal || "0"}</span> Tv series
