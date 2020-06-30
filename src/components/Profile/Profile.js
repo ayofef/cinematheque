@@ -13,7 +13,7 @@ import EmptyCollection from "../UI/Utilities/EmptyCollection/EmptyCollection";
 
 import classes from "./Profile.module.scss";
 
-const ProfileDetails = ({ dataBase, auth }) => {
+const ProfileDetails = ({ dataBase, auth, profile }) => {
     const MOVIES = dataBase && auth && dataBase[auth.uid] ? dataBase[auth.uid].movieList.slice().sort((a, b) => b.added - a.added) : null;
     const SERIES = dataBase && auth && dataBase[auth.uid] ? dataBase[auth.uid].seriesList.slice().sort((a, b) => b.added - a.added) : null;
 
