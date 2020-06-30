@@ -1,0 +1,49 @@
+.ScreenError {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    animation-fill-mode: backwards;
+    opacity: 1;
+    transform: translateX(0);
+    backface-visibility: hidden;
+    animation: slideIn 0.3s ease-out;
+    color: red;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    &__Error {
+        background-color: rgb(255, 217, 217);
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1.8rem rgba(49, 1, 1, 0.5);
+    }
+
+    &__Button {
+        text-align: right;
+        padding: 0.5rem 1.5rem;
+        background-color: #fff;
+        display: inline-block;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        border-radius: 5rem;
+
+        box-shadow: 0 0 1.8rem rgba(49, 1, 1, 0.5);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(4rem);
+    }
+    70% {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

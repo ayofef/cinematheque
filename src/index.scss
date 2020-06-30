@@ -1,233 +1,347 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;1,400&display=swap');
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;1,400&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-html{
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
-  transition: all .3s ease-out;
-  margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f4e3;
-  color: #1e212b;
-  
-}
-body p{
-  font-size: 1.4rem;
-  line-height: 2.7rem;
-}
-body a{
-  text-decoration: none;
-}
-body img{
-  display: block;
-}
+    transition: all 0.3s ease-out;
 
-.container{
-  width: 90%;
-  margin: 0 auto;
+    font-size: 1.4rem;
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f4e3;
+    color: #1e212b;
+}
+body p {
+    line-height: 2.7rem;
+}
+body a {
+    text-decoration: none;
+}
+body img {
+    display: block;
+}
+.collection-add {
+    fill: red;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
 }
 
 @media screen and (min-width: 1200px) {
-  .container{
-    width: 1200px;
-  }
+    .container {
+        width: 1200px;
+    }
+}
+.container-auth {
+    width: 90%;
+    margin: 0 auto;
 
+    @media screen and (min-width: 700px) {
+        width: 700px;
+    }
 }
 
 .fade-enter {
-  opacity: 0;
-  z-index: 1;
+    opacity: 0;
+    z-index: 1;
 }
 
 .fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 250ms ease-in;
+    opacity: 1;
+    transition: opacity 250ms ease-in;
 }
 
-
-.dark-mode{
-   
-  color: #f8f4e3;
-  background-color: #1e212b;
-
-
-  & a{
+.dark-mode {
     color: #f8f4e3;
-  }
-
-  & header,
-  & footer{
     background-color: #1e212b;
 
-    & a{
-      color: #f8f4e3;
+    & a {
+        color: #f8f4e3;
     }
 
-    & ul {
-      & li{
-        & a{
-          color: #f8f4e3;
-        }
-      }
-    }
-  }
-
-  & .markupHeading{
-    color: #f8f4e3;
-  }
-
-  & .genreLink{
-    color: #1e212b;
-  }
-
-  & .detailsTrailer{
-    color: #f8f4e3;
-  }
-  & .detailsBadges{
-    color: #1e212b;
-
-    & > * {
-       background-color: #cfdbd5;
-    }
-
-    & span{
-      color: #1e212b;
-      background-color: #f8f4e3;
-    }
-  }
-
-  & .headingRecommendation{
-    color: #f8f4e3;
-  }
-
-  & .darkLoader{
-    background-color: #1e212b;
-  }
-
-  & .basic-single{
-    color: #1e212b;
-  
-  
-    
-    & .select__control{
-      background-color: #cfdbd5;
-      border: 1px solid rgba(#1e212b, .4);
-      cursor: pointer;
-      color: #f8f4e3;
-  
-      &:focus,
-      &:hover,
-      &:target{
-        border-color: #1e212b;
-        outline: hidden;
-        box-shadow: 0 0 1px #1e212b;
-      }
-    }
-  
-    & .select__menu{
-      background-color: #cfdbd5;
-      cursor: pointer;
-      
-    }
-  
-    & .select__option{
-      cursor: pointer;
-  
-      &--is-focused{
-        background-color: rgba(#1e212b, .4);
-      }
-  
-      &--is-selected{
+    & header,
+    & footer {
         background-color: #1e212b;
-      }
-    }
-    & .select__indicator{
-      color: #1e212b;
-    }
-  }
 
-  & .mobileToggler{
-    & span{
-      background-color: #f8f4e3;
-
-      &::before,
-      &::after{
-        background-color: #f8f4e3;
-      }
+        & a {
+            color: #f8f4e3;
+        }
+        & ul {
+            background-color: #1e212b;
+            & li {
+                & a {
+                    color: #f8f4e3;
+                }
+            }
+        }
+        @media screen and (min-width: 56.25em) {
+            & ul {
+                background-color: #1e212b;
+                box-shadow: 0.5rem 0.5rem 1.6rem rgba(#cfdbd5, 0.05);
+                & li {
+                    & a {
+                        color: #f8f4e3;
+                    }
+                }
+            }
+        }
     }
-  }
 
-  & .mobileNav{
-    background-color: #1e212b ;
-  }
-  
+    & header .nav-initials {
+        background-color: #cfdbd5;
+
+        & p {
+            color: #1e212b !important;
+        }
+    }
+
+    & .markupHeading {
+        color: #f8f4e3;
+    }
+
+    & .genreLink {
+        color: #1e212b;
+    }
+
+    & .detailsTrailer {
+        color: #f8f4e3;
+    }
+    & .detailsBadges {
+        color: #1e212b;
+
+        & > * {
+            background-color: #cfdbd5;
+        }
+
+        & span {
+            color: #1e212b;
+            background-color: #f8f4e3;
+        }
+    }
+
+    & .emptyCollection {
+        & svg {
+            fill: #f8f4e3;
+        }
+    }
+
+    & .ReduxButton {
+        & button {
+            background-color: #cfdbd5;
+            color: #1e212b;
+
+            & svg {
+                fill: #1e212b;
+            }
+        }
+    }
+
+    & .headingRecommendation {
+        color: #f8f4e3;
+    }
+
+    & .darkLoader {
+        background-color: #1e212b;
+    }
+
+    & .basic-single {
+        color: #1e212b;
+
+        & .select__control {
+            background-color: #cfdbd5;
+            border: 1px solid rgba(#1e212b, 0.4);
+            cursor: pointer;
+            color: #f8f4e3;
+
+            &:focus,
+            &:hover,
+            &:target {
+                border-color: #1e212b;
+                outline: hidden;
+                box-shadow: 0 0 1px #1e212b;
+            }
+        }
+
+        & .select__menu {
+            background-color: #cfdbd5;
+            cursor: pointer;
+        }
+
+        & .select__option {
+            cursor: pointer;
+
+            &--is-focused {
+                background-color: rgba(#1e212b, 0.4);
+            }
+
+            &--is-selected {
+                background-color: #1e212b;
+            }
+        }
+        & .select__indicator {
+            color: #1e212b;
+        }
+    }
+
+    & .mobileToggler {
+        & span {
+            background-color: #f8f4e3;
+
+            &::before,
+            &::after {
+                background-color: #f8f4e3;
+            }
+        }
+    }
+
+    & .mobileNav {
+        background-color: #1e212b;
+    }
 }
 
-
-
-.basic-single{
-  color: #1e212b;
-  margin-bottom: 4rem;
-  outline: none;
-
-
-  
-  & .select__control{
-    background-color: #f8f4e3;
-    border: 1px solid rgba(#1e212b, .4);
-    cursor: pointer;
+.basic-single {
+    color: #1e212b;
+    margin-bottom: 4rem;
     outline: none;
 
-    &:focus,
-    &:hover,
-    &:target{
-      border-color: #1e212b;
-      outline: hidden;
-      box-shadow: 0 0 1px #1e212b;
-    }
-  }
+    & .select__control {
+        background-color: #f8f4e3;
+        border: 1px solid rgba(#1e212b, 0.4);
+        cursor: pointer;
+        outline: none;
 
-  & .select__menu{
-    background-color: #f8f4e3;
-    cursor: pointer;
-    outline: none;
-    
-  }
-
-  & .select__option{
-    cursor: pointer;
-    outline: none;
-
-    &--is-focused{
-      background-color: #cfdbd5;
+        &:focus,
+        &:hover,
+        &:target {
+            border-color: #1e212b;
+            outline: hidden;
+            box-shadow: 0 0 1px #1e212b;
+        }
     }
 
-    &--is-selected{
-      background-color: #1e212b;
+    & .select__menu {
+        background-color: #f8f4e3;
+        cursor: pointer;
+        outline: none;
     }
-  }
+
+    & .select__option {
+        cursor: pointer;
+        outline: none;
+
+        &--is-focused {
+            background-color: #cfdbd5;
+        }
+
+        &--is-selected {
+            background-color: #1e212b;
+        }
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-background-color: #cfdbd5;
+    -webkit-box-shadow: 0 0 0px 1000px #cfdbd5 inset !important;
 }

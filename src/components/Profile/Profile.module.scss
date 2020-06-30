@@ -1,0 +1,137 @@
+.Profile {
+    &__Header {
+        box-sizing: border-box;
+        background-image: url("../../assets/jays.jpg");
+        background-size: cover;
+        background-position: center;
+
+        &___Details {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 20vh;
+            background-color: rgba(#000, 0.8);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 2rem;
+            color: #f8f4e3;
+
+            @media screen and (max-width: 45em) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &_UserName {
+                @media screen and (max-width: 45em) {
+                    display: none;
+                }
+            }
+            &_Stats {
+                & span {
+                    font-size: 4rem;
+                    font-weight: 600;
+                }
+
+                @media screen and (max-width: 45em) {
+                    margin-bottom: 1.2rem;
+                }
+            }
+            &_ToEdit {
+                & a:link,
+                & a:visited {
+                    text-decoration: none;
+                    color: #f8f4e3;
+                }
+
+                & a::after {
+                    content: "";
+                    position: relative;
+                    margin-top: 0.2rem;
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: #f8f4e3;
+                    transform-origin: left;
+                    transform: scaleX(0);
+                    opacity: 0;
+                    transition: all 0.3s ease-out;
+                }
+
+                & a:active,
+                & a:hover {
+                    &::after {
+                        transform: scaleX(1);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__Body {
+        &___Sections {
+            margin-top: 3rem;
+            & h2 {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            &_BOXBOX {
+                box-sizing: border-box;
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: center;
+
+                & > * {
+                    box-sizing: border-box;
+                    flex: 0 0 20rem;
+                    margin: 3rem 2rem;
+
+                    @media screen and (max-width: 45em) {
+                        margin: 3rem 3rem;
+                    }
+                }
+
+                @media screen and (max-width: 45em) {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+.CardLoader {
+    position: relative;
+
+    &__Watched {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(#393e41, 0.9);
+        width: 100%;
+        height: 9rem;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        & svg {
+            background-color: none;
+            height: 4rem;
+            fill: #f8f4e3;
+        }
+
+        & p {
+            color: #f8f4e3;
+            font-size: 1.7rem;
+            padding-top: 1rem;
+        }
+    }
+}

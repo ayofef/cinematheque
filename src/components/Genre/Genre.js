@@ -1,5 +1,5 @@
-import React, { useEffect, useState} from 'react';
-import { Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Redirect, useParams } from "react-router-dom";
 
 import axios from "../../axiosInstance";
 import Loader from "../UI/Utilities/Loader/Loader";
@@ -10,40 +10,32 @@ import classes from "./Genre.module.scss";
 import { Helmet } from "react-helmet-async";
 import site from "../../assets/metaData.json";
 
-
-
 const Genre = () => {
-
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
+    const { section } = useParams();
 
     useEffect(() => {
-        if(!data){
-            axios.get("/genre/movie/list")
-            .then(res => {
+        axios
+            .get(`/genre/${section}/list`)
+            .then((res) => {
                 const data = res.data.genres;
-                setData(data)
+                setData(data);
             })
-            .catch(err => {
-                console.log("ERROR:", err.response)
-                setError(err.response.status)
-            })
-        }
-    })
+            .catch((err) => {
+                setError(err.response.status || "{0}");
+            });
+    }, [section]);
 
-
-    if(error){
-        return(
-            <Redirect to="/error"/>
-        )
+    if (error) {
+        return <Redirect to="/error" />;
     }
 
-    if(data){
-        return(
+    if (data) {
+        return (
             <div className={classes.Genre}>
-
-                <Helmet> 
+                <Helmet>
                     <html lang="en" />
                     <title>{site.siteMetadata.title} Genres</title>
                     <meta name="google-site-verification" content="1PzEhgav7N4Baqikr-U-7dtjHbNRw5OiIuPtWKZABHU" />
@@ -61,22 +53,16 @@ const Genre = () => {
 
                 <div className="container">
                     <div className={classes.Genre__Box}>
-                        {
-                            data.map(({id, name}) => {
-                                return(
-                                    <GenreItem key={id} genre={name} id={id}/>
-                                )
-                            })
-                        }
+                        {data.map(({ id, name }) => {
+                            return <GenreItem key={id} genre={name} id={id} />;
+                        })}
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 
-    return(
-        <Loader />
-    );
-}
+    return <Loader />;
+};
 
 export default Genre;

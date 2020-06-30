@@ -1,0 +1,31 @@
+.EmptyCollection {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+    animation: enterTop 0.3s ease-out;
+    transform: translateY(0);
+    animation-fill-mode: backwards;
+
+    & svg {
+        fill: #1e212b;
+        width: 2rem;
+    }
+
+    & p {
+        padding-left: 1rem;
+    }
+}
+
+@keyframes enterTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

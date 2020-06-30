@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 import Banner from "../../components/LandingCarousel/LandingCarousel";
-import { Latest, Popular, TopRated, Upcoming } from "../../components/HomeSections/HomeSections";
+import { Trending, TrendingTV, Popular, TopRated, Upcoming, PopularTV, TopRatedTV } from "../../components/HomeSections/HomeSections";
 import { Helmet } from "react-helmet-async";
 
 import site from "../../assets/metaData";
-const Home = () =>{
-
-    return(
+const Home = () => {
+    return (
         <>
-            <Helmet> 
+            <Helmet>
                 <html lang="en" />
                 <title>{site.siteMetadata.title} Home</title>
                 <meta name="google-site-verification" content="1PzEhgav7N4Baqikr-U-7dtjHbNRw5OiIuPtWKZABHU" />
@@ -24,18 +23,18 @@ const Home = () =>{
                 <meta name="og:description" content={site.siteMetadata.description} />
             </Helmet>
 
-            
             <Banner />
             <div className="container">
-                <Latest />
+                <Trending />
+                <TrendingTV />
                 <Popular />
+                <PopularTV />
                 <TopRated />
+                <TopRatedTV />
                 <Upcoming />
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Home;
-
-
