@@ -25,7 +25,9 @@ const ProfileDetails = ({ dataBase, auth }) => {
             <div className="container">
                 <div className={classes.Profile__Header}>
                     <div className={classes.Profile__Header___Details}>
-                        <h1 className={classes.Profile__Header___Details_UserName}>Farouq Ayofe</h1>
+                        <h1 className={classes.Profile__Header___Details_UserName}>
+                            `${profile.firstName} ${profile.lastName}`
+                        </h1>
                         <div className={classes.Profile__Header___Details_Stats}>
                             <span>{moviesTotal || "0"}</span> Movies &nbsp; <span>{seriesTotal || "0"}</span> Tv series
                         </div>
@@ -54,9 +56,9 @@ const ProfileDetails = ({ dataBase, auth }) => {
     );
 };
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth,
+        profile: state.firebase.profile,
         dataBase: state.firestore.data.lists,
     };
 };
