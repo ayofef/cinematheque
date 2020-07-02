@@ -60,7 +60,8 @@ const TvDetails = ({ data, cast, isOpen, setIsOpen, id, addSeries, series, dataB
         if (db && db[auth.uid] && db[auth.uid].seriesList) {
             const exists = db[auth.uid].seriesList.find((el) => el.seriesID === id);
 
-            return exists;
+            return setExisted(exists);
+            // return exists;
         }
         return null;
     };
@@ -80,8 +81,9 @@ const TvDetails = ({ data, cast, isOpen, setIsOpen, id, addSeries, series, dataB
     };
 
     useEffect(() => {
-        const checker = StoreChecker();
-        setExisted(checker);
+        StoreChecker();
+        // const checker = StoreChecker();
+        // setExisted(checker);
     }, [existed, setExisted, StoreChecker]);
 
     // console.log(existed, StoreChecker());

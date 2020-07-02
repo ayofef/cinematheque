@@ -57,7 +57,8 @@ const MovieDetails = ({ data, cast, isOpen, setIsOpen, id, addMovie, movies, dat
         if (db && db[auth.uid] && db[auth.uid].movieList) {
             const exists = db[auth.uid].movieList.find((el) => el.movieID === id);
 
-            return exists;
+            return setExisted(exists);
+            // return exists;
         }
         return null;
     };
@@ -77,8 +78,9 @@ const MovieDetails = ({ data, cast, isOpen, setIsOpen, id, addMovie, movies, dat
     };
 
     useEffect(() => {
-        const checker = StoreChecker();
-        setExisted(checker);
+        StoreChecker();
+        // const checker = StoreChecker();
+        // setExisted(checker);
     }, [existed, setExisted, StoreChecker]);
 
     // console.log(existed, StoreChecker());

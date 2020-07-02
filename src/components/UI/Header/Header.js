@@ -26,10 +26,6 @@ const seriesNav = [
     { name: "Genres", link: "/tv/genres" },
 ];
 
-const IconStyle = {
-    height: "4rem",
-};
-
 const Header = (props) => {
     const [nav, setNav] = useState(false);
 

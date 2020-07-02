@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -19,6 +19,10 @@ const ProfileDetails = ({ dataBase, auth, profile }) => {
 
     const moviesTotal = dataBase && auth && dataBase[auth.uid] ? dataBase[auth.uid].movieList.length : null;
     const seriesTotal = dataBase && auth && dataBase[auth.uid] ? dataBase[auth.uid].seriesList.length : null;
+
+    if (!auth.uid) {
+        return <Redirect to="/sign-in" />;
+    }
 
     return (
         <div className={classes.Profile}>
